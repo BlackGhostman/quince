@@ -36,32 +36,89 @@ if ($guest_id > 0 && file_exists($guests_file)) {
         /* Estilos personalizados para la invitación */
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #fce3f3 0%, #fde4e4 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 1rem;
+            background-color: #fdf2f8; /* Fallback background */
+            margin: 0;
+            padding: 0;
         }
 
-        .invitation-card {
-            background-color: white;
+        .hero-section {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/265856/pexels-photo-265856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 6rem;
+            margin: -1rem 0;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+        }
+
+        .spotify-player {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+            z-index: 10;
+        }
+        
+        #countdown {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .countdown-item {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border-radius: 0.75rem;
+            padding: 1rem 1.5rem;
+            text-align: center;
+        }
+
+        .countdown-item div:first-child {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .countdown-item div:last-child {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .details-section {
+            padding: 3rem 1.5rem;
+            background-color: #fff;
+            max-width: 500px;
+            margin: 2rem auto;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            max-width: 450px;
-            width: 100%;
-            text-align: center;
-            padding: 2.5rem;
-            border: 1px solid rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
         }
 
         .title-script {
             font-family: 'Dancing Script', cursive;
             color: #d85c9d;
         }
-        
+
         .details-icon {
             color: #d85c9d;
             width: 20px;
@@ -74,88 +131,53 @@ if ($guest_id > 0 && file_exists($guests_file)) {
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .action-button:hover {
-            transform: translateY(-2px);
-        }
+        .action-button:hover { transform: translateY(-2px); }
 
         .accept-button {
             background: linear-gradient(45deg, #f472b6, #db2777);
             box-shadow: 0 4px 15px rgba(216, 92, 157, 0.4);
         }
 
-        .accept-button:hover {
-             box-shadow: 0 6px 20px rgba(216, 92, 157, 0.5);
-        }
+        .accept-button:hover { box-shadow: 0 6px 20px rgba(216, 92, 157, 0.5); }
 
-        .reject-button {
-            background-color: #f1f5f9;
-            color: #64748b;
-        }
-
-        .reject-button:hover {
-            background-color: #e2e8f0;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        @keyframes confetti-fall {
-            0% { transform: translateY(-100%) rotateZ(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotateZ(360deg); opacity: 0; }
-        }
-
-        .confetti {
-            position: absolute; width: 8px; height: 16px; background-color: #f472b6; top: -20px; opacity: 0;
-            animation: confetti-fall 5s linear infinite;
-        }
-        .confetti:nth-child(2) { background-color: #ec4899; animation-delay: 0.5s; left: 10%; }
-        .confetti:nth-child(3) { background-color: #fbcfe8; animation-delay: 1s; left: 20%; }
-        .confetti:nth-child(4) { background-color: #f9a8d4; animation-delay: 1.5s; left: 30%; }
-        .confetti:nth-child(5) { background-color: #f472b6; animation-delay: 2s; left: 40%; }
-        .confetti:nth-child(6) { background-color: #ec4899; animation-delay: 2.5s; left: 50%; }
-        .confetti:nth-child(7) { background-color: #fbcfe8; animation-delay: 3s; left: 60%; }
-        .confetti:nth-child(8) { background-color: #f9a8d4; animation-delay: 3.5s; left: 70%; }
-        .confetti:nth-child(9) { background-color: #f472b6; animation-delay: 4s; left: 80%; }
-        .confetti:nth-child(10) { background-color: #ec4899; animation-delay: 4.5s; left: 90%; }
-        
-        .confetti-container.active .confetti { opacity: 1; }
+        .reject-button { background-color: #f1f5f9; color: #64748b; }
+        .reject-button:hover { background-color: #e2e8f0; }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
-    
-    <div class="confetti-container" id="confetti-container">
-        <div class="confetti"></div> <div class="confetti"></div> <div class="confetti"></div> <div class="confetti"></div> <div class="confetti"></div>
-        <div class="confetti"></div> <div class="confetti"></div> <div class="confetti"></div> <div class="confetti"></div> <div class="confetti"></div>
-    </div>
+    <div class="hero-section">
+        <div class="spotify-player">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2qxmye6gA8ecCSn5nB1j7d?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
 
-    
-    <div class="invitation-card">
-        <h1 class="title-script text-6xl mb-2">Mis Quince Años</h1>
-        <h2 class="title-script text-5xl mb-6">Giuliana Aguilar</h2>
-
-        <p class="text-gray-600 mb-6 leading-relaxed">
-            Porque eres parte de mi historia, quiero que estés en el comienzo de un nuevo capítulo. Te invito a celebrar la noche de mis sueños.
-        </p>
-
-        <div id="countdown" class="grid grid-cols-4 gap-2 text-center my-8">
-            <div>
-                <div id="days" class="text-4xl font-bold text-pink-500">00</div>
-                <div class="text-xs text-gray-500">Días</div>
+        <h1 class="hero-title">XV Años</h1>
+        <h2 class="hero-name">Giuliana</h2>
+        
+        <div id="countdown">
+            <div class="countdown-item">
+                <div id="days">00</div>
+                <div>DÍAS</div>
             </div>
-            <div>
-                <div id="hours" class="text-4xl font-bold text-pink-500">00</div>
-                <div class="text-xs text-gray-500">Horas</div>
+            <div class="countdown-item">
+                <div id="hours">00</div>
+                <div>HORAS</div>
             </div>
-            <div>
-                <div id="minutes" class="text-4xl font-bold text-pink-500">00</div>
-                <div class="text-xs text-gray-500">Minutos</div>
+            <div class="countdown-item">
+                <div id="minutes">00</div>
+                <div>MINUTOS</div>
             </div>
-            <div>
-                <div id="seconds" class="text-4xl font-bold text-pink-500">00</div>
-                <div class="text-xs text-gray-500">Segundos</div>
+            <div class="countdown-item">
+                <div id="seconds">00</div>
+                <div>SEGUNDOS</div>
             </div>
         </div>
+    </div>
+
+    <div class="details-section">
+        <p class="text-gray-600 mb-6 leading-relaxed text-center">
+            Porque eres parte de mi historia, quiero que estés en el comienzo de un nuevo capítulo. Te invito a celebrar la noche de mis sueños.
+        </p>
 
         <div class="space-y-4 text-left my-8">
             <div class="flex items-center space-x-4"><i data-lucide="calendar-heart" class="details-icon"></i><span class="font-semibold text-gray-700">Sábado, 11 de Octubre, 2025</span></div>
@@ -176,22 +198,15 @@ if ($guest_id > 0 && file_exists($guests_file)) {
             </div>
         </div>
 
-        <div class="my-8">
-            <p class="text-center text-gray-600 mb-4">Una canción para crear el ambiente perfecto:</p>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2qxmye6gA8ecCSn5nB1j7d?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
 
-        
         <?php if ($current_guest_name): ?>
             <div class="mb-6 text-center">
                 <p class="text-xl text-gray-700">Invitación especial para</p>
                 <p class="text-3xl font-semibold title-script text-pink-500"><?php echo htmlspecialchars($current_guest_name); ?></p>
             </div>
         <?php endif; ?>
-
         
-        
-        <div id="rsvp-section" class="<?php echo ($guest_status !== 'N/A') ? 'hidden' : ''; ?>">
+        <div id="rsvp-section" class="<?php echo ($guest_status !== 'N/A') ? '' : 'hidden'; ?>">
             <?php if ($current_guest_name): ?>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <button id="reject-button" class="action-button reject-button w-full py-3 px-4 text-lg font-semibold rounded-lg transition-all">No Podré Asistir</button>
