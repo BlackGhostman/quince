@@ -163,16 +163,12 @@ if ($guest_id > 0 && file_exists($guests_file)) {
             <div class="flex items-center space-x-4">
                 <i data-lucide="map-pin" class="details-icon"></i>
                 <a href="https://maps.app.goo.gl/SdTWZm1bMUBuBeev5" target="_blank" rel="noopener noreferrer" class="font-semibold text-gray-700 hover:text-pink-600 transition-colors">
-                    Salón de Eventos "La Esmeralda", Cartago
+                    Sala de Eventos Nila
                 </a>
             </div>
             <div class="flex items-center space-x-4">
                 <i data-lucide="shirt" class="details-icon"></i>
                 <span class="font-semibold text-gray-700">Código de Vestimenta: Formal</span>
-            </div>
-            <div class="flex items-center space-x-4">
-                <i data-lucide="baby" class="details-icon"></i>
-                <span class="font-semibold text-gray-700">No niños</span>
             </div>
             <div class="flex items-center space-x-4">
                 <i data-lucide="gift" class="details-icon"></i>
