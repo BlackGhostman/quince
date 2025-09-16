@@ -42,7 +42,7 @@ if ($guest_id > 0 && file_exists($guests_file)) {
         }
 
         .hero-section {
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/265856/pexels-photo-265856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('img15.png');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -59,14 +59,24 @@ if ($guest_id > 0 && file_exists($guests_file)) {
             font-family: 'Montserrat', sans-serif;
             font-size: 2.5rem;
             font-weight: 600;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            text-shadow: 0 0 15px rgba(0,0,0,0.7);
+            -webkit-text-stroke: 0.5px rgba(0,0,0,0.2);
         }
 
         .hero-name {
             font-family: 'Dancing Script', cursive;
             font-size: 6rem;
             margin: -1rem 0;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+            text-shadow: 0 0 15px rgba(0,0,0,0.7);
+            -webkit-text-stroke: 0.5px rgba(0,0,0,0.2);
+        }
+
+        .hero-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            margin-top: -1.5rem;
+            text-shadow: 0 0 15px rgba(0,0,0,0.7);
+            -webkit-text-stroke: 0.5px rgba(0,0,0,0.2);
         }
 
         .spotify-player {
@@ -86,16 +96,18 @@ if ($guest_id > 0 && file_exists($guests_file)) {
         }
 
         .countdown-item {
-            background-color: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(8px);
             border-radius: 0.75rem;
             padding: 1rem 1.5rem;
             text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .countdown-item div:first-child {
             font-size: 3rem;
             font-weight: 700;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
         }
 
         .countdown-item div:last-child {
@@ -134,13 +146,14 @@ if ($guest_id > 0 && file_exists($guests_file)) {
         .action-button:hover { transform: translateY(-2px); }
 
         .accept-button {
-            background: linear-gradient(45deg, #f472b6, #db2777);
+            background: linear-gradient(45deg, #ec4899, #d946ef);
             box-shadow: 0 4px 15px rgba(216, 92, 157, 0.4);
+            color: white;
         }
 
         .accept-button:hover { box-shadow: 0 6px 20px rgba(216, 92, 157, 0.5); }
 
-        .reject-button { background-color: #f1f5f9; color: #64748b; }
+        .reject-button { background-color: #f8fafc; color: #9ca3af; border: 1px solid #e5e7eb; }
         .reject-button:hover { background-color: #e2e8f0; }
         .hidden { display: none; }
     </style>
@@ -153,6 +166,7 @@ if ($guest_id > 0 && file_exists($guests_file)) {
 
         <h1 class="hero-title">XV Años</h1>
         <h2 class="hero-name">Giuliana</h2>
+        <h3 class="hero-subtitle">Quinceañera</h3>
         
         <div id="countdown">
             <div class="countdown-item">
@@ -206,7 +220,7 @@ if ($guest_id > 0 && file_exists($guests_file)) {
             </div>
         <?php endif; ?>
         
-        <div id="rsvp-section" class="<?php echo ($guest_status !== 'N/A') ? '' : 'hidden'; ?>">
+        <div id="rsvp-section" class="<?php echo ($guest_status === 'N/A') ? '' : 'hidden'; ?>">
             <?php if ($current_guest_name): ?>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <button id="reject-button" class="action-button reject-button w-full py-3 px-4 text-lg font-semibold rounded-lg transition-all">No Podré Asistir</button>
