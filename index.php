@@ -42,9 +42,7 @@ if ($guest_id > 0 && file_exists($guests_file)) {
         }
 
         .hero-section {
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('img15.png');
-            background-size: cover;
-            background-position: center;
+            position: relative;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -52,7 +50,30 @@ if ($guest_id > 0 && file_exists($guests_file)) {
             align-items: center;
             text-align: center;
             color: white;
-            position: relative;
+            overflow: hidden;
+            padding-top: 152px; /* Espacio para el reproductor de Spotify */
+            box-sizing: border-box;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: -1;
         }
 
         .hero-title {
@@ -96,7 +117,7 @@ if ($guest_id > 0 && file_exists($guests_file)) {
         }
 
         .countdown-item {
-            background-color: rgba(0, 0, 0, 0.25);
+            background-color: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(8px);
             border-radius: 0.75rem;
             padding: 1rem 1.5rem;
@@ -160,8 +181,11 @@ if ($guest_id > 0 && file_exists($guests_file)) {
 </head>
 <body>
     <div class="hero-section">
+        <video autoplay muted loop class="hero-video">
+            <source src="vid152.mp4" type="video/mp4">
+        </video>
         <div class="spotify-player">
-            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1LY3GhF0zxIVgbYEQjCbUO?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/26CCGV25A8MAy0L6Z6rtKO?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
         <h1 class="hero-title">XV Años</h1>
@@ -199,7 +223,7 @@ if ($guest_id > 0 && file_exists($guests_file)) {
             <div class="flex items-center space-x-4">
                 <i data-lucide="map-pin" class="details-icon"></i>
                 <a href="https://maps.app.goo.gl/SdTWZm1bMUBuBeev5" target="_blank" rel="noopener noreferrer" class="font-semibold text-gray-700 hover:text-pink-600 transition-colors">
-                    Sala de Eventos Nila
+                    Sala de Eventos Nila salón TRAVENTINO
                 </a>
             </div>
             <div class="flex items-center space-x-4">
