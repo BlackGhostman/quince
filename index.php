@@ -148,7 +148,7 @@ if ($guest_id > 0 && file_exists($guests_file)) {
 <body>
     <div class="hero-section">
         <div class="spotify-player">
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2qxmye6gA8ecCSn5nB1j7d?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1LY3GhF0zxIVgbYEQjCbUO?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
         <h1 class="hero-title">XV Años</h1>
@@ -181,7 +181,7 @@ if ($guest_id > 0 && file_exists($guests_file)) {
 
         <div class="space-y-4 text-left my-8">
             <div class="flex items-center space-x-4"><i data-lucide="calendar-heart" class="details-icon"></i><span class="font-semibold text-gray-700">Sábado, 11 de Octubre, 2025</span></div>
-            <div class="flex items-center space-x-4"><i data-lucide="clock" class="details-icon"></i><span class="font-semibold text-gray-700">7:00 PM</span></div>
+            <div class="flex items-center space-x-4"><i data-lucide="clock" class="details-icon"></i><span class="font-semibold text-gray-700">5:00 PM</span></div>
             <div class="flex items-center space-x-4">
                 <i data-lucide="map-pin" class="details-icon"></i>
                 <a href="https://maps.app.goo.gl/SdTWZm1bMUBuBeev5" target="_blank" rel="noopener noreferrer" class="font-semibold text-gray-700 hover:text-pink-600 transition-colors">
@@ -272,7 +272,7 @@ if ($guest_id > 0 && file_exists($guests_file)) {
             rejectButton.addEventListener('click', () => handleRsvp('rechazado'));
 
             // Lógica del contador
-            const countdownDate = new Date('October 11, 2025 19:00:00').getTime();
+            const countdownDate = new Date('October 11, 2025 17:00:00').getTime();
 
             const updateCountdown = setInterval(() => {
                 const now = new Date().getTime();
