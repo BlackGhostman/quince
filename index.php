@@ -177,6 +177,31 @@ if ($guest_id > 0 && file_exists($guests_file)) {
         .reject-button { background-color: #f8fafc; color: #9ca3af; border: 1px solid #e5e7eb; }
         .reject-button:hover { background-color: #e2e8f0; }
         .hidden { display: none; }
+
+        @media (max-width: 480px) {
+            #countdown {
+                gap: 0.5rem;
+            }
+            .countdown-item {
+                padding: 0.8rem 0.5rem;
+            }
+            .countdown-item div:first-child {
+                font-size: 2rem;
+            }
+            .countdown-item div:last-child {
+                font-size: 0.6rem;
+            }
+            .hero-name {
+                font-size: 4.5rem;
+            }
+            .hero-subtitle {
+                font-size: 3rem;
+            }
+            .details-section {
+                margin: 1rem;
+                padding: 2rem 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -230,10 +255,7 @@ if ($guest_id > 0 && file_exists($guests_file)) {
                 <i data-lucide="shirt" class="details-icon"></i>
                 <span class="font-semibold text-gray-700">Código de Vestimenta: Formal</span>
             </div>
-            <div class="flex items-center space-x-4">
-                <i data-lucide="gift" class="details-icon"></i>
-                <span class="font-semibold text-gray-700">Regalo: Lluvia de sobres</span>
-            </div>
+            
         </div>
 
 
